@@ -14,4 +14,11 @@ export default class Shopper {
     this.coverageArea = coverageArea;
     this.address = address;
   }
+
+  public getId() { return this.id; }
+  public getTradingName() { return this.tradingName; }
+  public getOwnerName() { return this.ownerName; }
+  public getDocument() { return this.document; }
+  public getCoverageArea() { return this.coverageArea; }
+  public getAddress() { return this.address; }
 }
