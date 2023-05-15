@@ -23,7 +23,7 @@ export default class GetShopperById {
   }
 }
 
-type ShopperModel = {
+export type ShopperModel = {
   id: string,
   tradingName: string,
   ownerName: string,

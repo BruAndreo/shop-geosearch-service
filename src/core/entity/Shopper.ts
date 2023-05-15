@@ -1,3 +1,6 @@
+import crypto from "crypto";
+import { NewShopperModel } from "../usecases/newShopper";
+
 export default class Shopper {
   private id: string;
   private tradingName: string;
@@ -5,6 +8,17 @@ export default class Shopper {
   private document: string;
   private coverageArea: any;
   private address: any;
+
+  public static create(input: NewShopperModel) {
+    return new Shopper(
+      crypto.randomUUID(),
+      input.tradingName,
+      input.ownerName,
+      input.document,
+      input.coverageArea,
+      input.address
+    );
+  }
 
   constructor(id: string, tradingName: string, ownerNamer: string, document: string, coverageArea: any, address: any) {
     this.id = id;
