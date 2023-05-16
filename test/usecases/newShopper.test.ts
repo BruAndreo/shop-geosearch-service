@@ -10,7 +10,7 @@ test("Should create new Shopper and return ID", async () => {
   const shopper: NewShopperModel = {
     tradingName: "Adega da Cerveja - Pinheiros",
     ownerName: "Zé da Silva",
-    document: "1432132123891/0001",
+    document: "14.321.321/0001-23",
     coverageArea: {
       type: "MultiPolygon",
       coordinates: [
@@ -36,8 +36,8 @@ test("Should create new Shopper and return ID", async () => {
   expect(resultShopper.document).toBe(shopper.document);
 });
 
-test.todo("Shouldn't create a new shopper without any information");
-test.todo("Shouldn't create a new shopper with document(CNPJ) invalid");
+test("Shouldn't create a new shopper with document(CNPJ) invalid");
+
 test.todo("Shouldn't create a new shopper if already exists");
 test.todo("Shouldn't create a new shopper without `coverageArea` in GeoJSON format");
 test.todo("Shouldn't create a new shopper without `address` in GeoJSON format");

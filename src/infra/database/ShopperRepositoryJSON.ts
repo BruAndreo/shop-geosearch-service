@@ -36,7 +36,7 @@ const DATAS: ShopperDataModel[] = [{
   id: "1",
   tradingName: "Adega da Cerveja - Pinheiros",
   ownerName: "Zé da Silva",
-  document: "1432132123891000125",
+  document: "14.321.123/0001-23",
   coverageArea: {
     "type": "MultiPolygon",
     "coordinates": [
