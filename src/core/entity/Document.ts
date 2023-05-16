@@ -25,5 +25,5 @@ export default class Document {
     return size === CORRECT_SIZE_DOCUMENT;
   }
 
-  public getValue() { this.value }
+  public getValue() { return this.value }
 }
