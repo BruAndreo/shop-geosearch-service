@@ -30,13 +30,18 @@ export default class ShopperRepositoryJSON implements ShopperRepository {
     DATAS.push(newShopper);
     return new Promise(resolve => resolve());
   }
+
+  async existsDocument(document: string): Promise<boolean> {
+    const shopper = DATAS.find(shopper => shopper.document === document);
+    return new Promise(resolve => resolve(shopper ? true : false))
+  }
 }
 
 const DATAS: ShopperDataModel[] = [{
   id: "1",
   tradingName: "Adega da Cerveja - Pinheiros",
   ownerName: "Zé da Silva",
-  document: "14.321.123/0001-23",
+  document: "14321123000123",
   coverageArea: {
     "type": "MultiPolygon",
     "coordinates": [

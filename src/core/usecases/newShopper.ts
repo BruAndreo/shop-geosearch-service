@@ -1,4 +1,5 @@
 import ShopperRepository from "../../infra/database/ShopperRepository";
+import Document from "../entity/Document";
 import Shopper from "../entity/Shopper";
 
 export default class NewShopper {
@@ -8,12 +9,21 @@ export default class NewShopper {
     try {
       const shopper = Shopper.create(input);
 
+      const existentShopper = await this.isShopperExists(input.document);
+      if (existentShopper) {
+        throw new Error("Shopper already exists");
+      }
+
       await this.repository.createShopper(shopper);
       return shopper.getId();
     } catch (e: any) {
       throw new Error(e.message);
     }
+  }
 
+  private async isShopperExists(document: string): Promise<boolean> {
+    const doc = new Document(document);
+    return await this.repository.existsDocument(doc.getValue());
   }
 }
 
