@@ -6,19 +6,15 @@ export default class NewShopper {
   constructor(readonly repository: ShopperRepository) {}
 
   public async create(input: NewShopperModel): Promise<string> {
-    try {
-      const shopper = Shopper.create(input);
+    const shopper = Shopper.create(input);
 
-      const existentShopper = await this.isShopperExists(input.document);
-      if (existentShopper) {
-        throw new Error("Shopper already exists");
-      }
-
-      await this.repository.createShopper(shopper);
-      return shopper.getId();
-    } catch (e: any) {
-      throw new Error(e.message);
+    const existentShopper = await this.isShopperExists(input.document);
+    if (existentShopper) {
+      throw new Error("Shopper already exists");
     }
+
+    await this.repository.createShopper(shopper);
+    return shopper.getId();
   }
 
   private async isShopperExists(document: string): Promise<boolean> {
